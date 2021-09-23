@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D283D5926FD237900CB10D0 /* AccountsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D283D5826FD237900CB10D0 /* AccountsListController.swift */; };
+		8D283D5E26FD243500CB10D0 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D283D5D26FD243500CB10D0 /* Account.swift */; };
+		8D283D6026FD2C3400CB10D0 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D283D5F26FD2C3400CB10D0 /* Observable.swift */; };
+		8D283D6226FD30D700CB10D0 /* AccountsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D283D6126FD30D700CB10D0 /* AccountsManager.swift */; };
+		8D283D6526FD355F00CB10D0 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D283D6426FD355F00CB10D0 /* AccountCell.swift */; };
+		8D283D6726FD357600CB10D0 /* AccountCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D283D6626FD357600CB10D0 /* AccountCellViewModel.swift */; };
+		8D283D6926FD43FC00CB10D0 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D283D6826FD43FC00CB10D0 /* QRScannerViewController.swift */; };
 		8D2D7D4B26FD201400372CE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2D7D4A26FD201400372CE2 /* AppDelegate.swift */; };
 		8D2D7D4D26FD201400372CE2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2D7D4C26FD201400372CE2 /* SceneDelegate.swift */; };
 		8D2D7D4F26FD201400372CE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2D7D4E26FD201400372CE2 /* ViewController.swift */; };
@@ -16,6 +23,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D283D5826FD237900CB10D0 /* AccountsListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsListController.swift; sourceTree = "<group>"; };
+		8D283D5D26FD243500CB10D0 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		8D283D5F26FD2C3400CB10D0 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		8D283D6126FD30D700CB10D0 /* AccountsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsManager.swift; sourceTree = "<group>"; };
+		8D283D6426FD355F00CB10D0 /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
+		8D283D6626FD357600CB10D0 /* AccountCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCellViewModel.swift; sourceTree = "<group>"; };
+		8D283D6826FD43FC00CB10D0 /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		8D2D7D4726FD201400372CE2 /* GoogleAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleAuth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D2D7D4A26FD201400372CE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D2D7D4C26FD201400372CE2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +51,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D283D5626FD233200CB10D0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8D2D7D4E26FD201400372CE2 /* ViewController.swift */,
+				8D283D5826FD237900CB10D0 /* AccountsListController.swift */,
+				8D283D6826FD43FC00CB10D0 /* QRScannerViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8D283D5726FD234200CB10D0 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8D2D7D5026FD201400372CE2 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		8D283D5A26FD23E200CB10D0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8D283D6426FD355F00CB10D0 /* AccountCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		8D283D5B26FD240D00CB10D0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8D283D5F26FD2C3400CB10D0 /* Observable.swift */,
+				8D283D6626FD357600CB10D0 /* AccountCellViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		8D283D5C26FD241800CB10D0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8D283D5D26FD243500CB10D0 /* Account.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		8D283D6326FD345D00CB10D0 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				8D283D6126FD30D700CB10D0 /* AccountsManager.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
 		8D2D7D3E26FD201300372CE2 = {
 			isa = PBXGroup;
 			children = (
@@ -56,14 +121,13 @@
 		8D2D7D4926FD201400372CE2 /* GoogleAuth */ = {
 			isa = PBXGroup;
 			children = (
+				8D283D6326FD345D00CB10D0 /* Managers */,
+				8D283D5C26FD241800CB10D0 /* Models */,
+				8D283D5B26FD240D00CB10D0 /* ViewModels */,
+				8D283D5A26FD23E200CB10D0 /* Views */,
+				8D283D5726FD234200CB10D0 /* Storyboards */,
+				8D283D5626FD233200CB10D0 /* ViewControllers */,
 				8D2D7D5E26FD204300372CE2 /* Resources */,
-				8D2D7D4A26FD201400372CE2 /* AppDelegate.swift */,
-				8D2D7D4C26FD201400372CE2 /* SceneDelegate.swift */,
-				8D2D7D4E26FD201400372CE2 /* ViewController.swift */,
-				8D2D7D5026FD201400372CE2 /* Main.storyboard */,
-				8D2D7D5326FD201E00372CE2 /* Assets.xcassets */,
-				8D2D7D5526FD201E00372CE2 /* LaunchScreen.storyboard */,
-				8D2D7D5826FD201E00372CE2 /* Info.plist */,
 			);
 			path = GoogleAuth;
 			sourceTree = "<group>";
@@ -71,6 +135,11 @@
 		8D2D7D5E26FD204300372CE2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8D2D7D4A26FD201400372CE2 /* AppDelegate.swift */,
+				8D2D7D4C26FD201400372CE2 /* SceneDelegate.swift */,
+				8D2D7D5326FD201E00372CE2 /* Assets.xcassets */,
+				8D2D7D5526FD201E00372CE2 /* LaunchScreen.storyboard */,
+				8D2D7D5826FD201E00372CE2 /* Info.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -145,9 +214,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D283D6926FD43FC00CB10D0 /* QRScannerViewController.swift in Sources */,
+				8D283D5E26FD243500CB10D0 /* Account.swift in Sources */,
+				8D283D6526FD355F00CB10D0 /* AccountCell.swift in Sources */,
+				8D283D6026FD2C3400CB10D0 /* Observable.swift in Sources */,
+				8D283D6726FD357600CB10D0 /* AccountCellViewModel.swift in Sources */,
 				8D2D7D4F26FD201400372CE2 /* ViewController.swift in Sources */,
 				8D2D7D4B26FD201400372CE2 /* AppDelegate.swift in Sources */,
+				8D283D6226FD30D700CB10D0 /* AccountsManager.swift in Sources */,
 				8D2D7D4D26FD201400372CE2 /* SceneDelegate.swift in Sources */,
+				8D283D5926FD237900CB10D0 /* AccountsListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
