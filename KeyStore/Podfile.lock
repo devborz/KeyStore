@@ -1,0 +1,26 @@
+PODS:
+  - Realm (10.15.1):
+    - Realm/Headers (= 10.15.1)
+  - Realm/Headers (10.15.1)
+  - RealmSwift (10.15.1):
+    - Realm (= 10.15.1)
+  - SwiftOTP (3.0.0)
+
+DEPENDENCIES:
+  - RealmSwift (~> 10)
+  - SwiftOTP
+
+SPEC REPOS:
+  trunk:
+    - Realm
+    - RealmSwift
+    - SwiftOTP
+
+SPEC CHECKSUMS:
+  Realm: fbcbde2620d51623cc5b18e28f5b165c39abef52
+  RealmSwift: e4bea8e42efad3d543aea23b56504069c6faaea2
+  SwiftOTP: ec3848f12a4541f29d96f6a0fe63dcbb8448d96f
+
+PODFILE CHECKSUM: 013ded8d7959f36a470058510ac6f3d36dd15a4b
+
+COCOAPODS: 1.11.2
