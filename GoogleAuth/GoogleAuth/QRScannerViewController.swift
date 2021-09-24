@@ -114,7 +114,7 @@ class QRScannerViewController: UIViewController {
             found(code: stringValue)
         }
 
-        dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
     }
 
     func found(code: String) {

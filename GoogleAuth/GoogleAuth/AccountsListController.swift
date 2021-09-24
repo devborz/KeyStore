@@ -37,9 +37,7 @@ class AccountsListController: UITableViewController {
     @objc
     func scanQRButtonTapped() {
         let vc = QRScannerViewController()
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .formSheet
-        present(nav, animated: true, completion: nil)
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     // MARK: - Table view data source
@@ -57,13 +55,6 @@ class AccountsListController: UITableViewController {
         let viewModel = AccountCellViewModel(model: AccountsManager.shared.accounts.value[indexPath.row])
         cell.setup(viewModel)
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let vc = UIViewController()
-        vc.view.backgroundColor = .systemBackground
-        navigationController?.pushViewController(vc, animated: true)
     }
 
 }
