@@ -27,8 +27,7 @@ class AccountCellViewModel: Hashable, Equatable {
     
     init(model: Account) {
         self.model = model
-        print("request")
-        if let lastCode = AccountsManager.shared.fetchLastCodeForAccount(model) {
+        if let lastCode = DBManager.shared.fetchLastCodeForAccount(model) {
             currentCode.value = lastCode
             let components = Calendar.current.dateComponents([.second], from: lastCode.created, to: Date())
             let seconds = components.second!
@@ -48,7 +47,7 @@ class AccountCellViewModel: Hashable, Equatable {
             currentCode.value = code
             seconds.value = 30
             setupTimer()
-            AccountsManager.shared.saveCode(code, for: model)
+            DBManager.shared.saveCode(code, for: model)
         }
     }
     
