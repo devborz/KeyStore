@@ -47,11 +47,7 @@ func parseResult(_ string: String) -> Account? {
     let secret = String(string[secretEndIndex..<issuerStartIndex])
     let issuer = String(string[issuerEndIndex...])
     
-    let account = Account()
-    account.id = UUID().uuidString
-    account.issuer = issuer
-    account.email = email
-    account.secret = secret
+    let account = Account(id: UUID().uuidString, issuer: issuer, email: email, secret: secret)
     return account
 }
 
@@ -66,4 +62,30 @@ func generateCode(for account: Account) -> Code? {
         return code
     }
     return nil
+}
+
+func resetWindow(with vc: UIViewController?) {
+    guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
+        fatalError("could not get scene delegate ")
+    }
+    guard let window = sceneDelegate.window else { return }
+    window.rootViewController = vc
+    window.makeKeyAndVisible()
+    UIView.transition(with: window,
+                        duration: 0.3,
+                        options: .transitionCrossDissolve,
+                        animations: nil,
+                        completion: nil)
+}
+
+func showLoginScreen() {
+    let vc = LoginViewController()
+    let navigationController = NavigationController(rootViewController: vc)
+    resetWindow(with: navigationController)
+}
+
+func showHomeScreen() {
+    let vc = AccountsListController()
+    let navigationController = NavigationController(rootViewController: vc)
+    resetWindow(with: navigationController)
 }
