@@ -15,14 +15,20 @@ class AccountsListController: UITableViewController {
     
     var scanQRButton: UIBarButtonItem!
     
-    var dataSource: UITableViewDiffableDataSource<Section, AccountCellViewModel>!
-    
-    var isFirstLoadMade = false
+    var settingsButton: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
         setupTableView()
+        
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+    }
+    
+    @objc
+    func refresh() {
+        DBManager.shared.getSavedAccounts()
     }
     
     func setupNavBar() {
@@ -30,50 +36,26 @@ class AccountsListController: UITableViewController {
         
         scanQRButton = .init(image: UIImage(systemName: "qrcode.viewfinder"), style: .plain, target: self, action: #selector(scanQRButtonTapped))
         navigationItem.rightBarButtonItem = scanQRButton
+        
+        settingsButton = .init(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(settingsButtonTapped))
+        navigationItem.leftBarButtonItem = settingsButton
     }
     
     func setupTableView() {
         tableView.register(AccountCell.self, forCellReuseIdentifier: "cell")
         
-        dataSource = .init(tableView: tableView, cellProvider: { tableView, indexPath, viewModel in
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AccountCell
-            cell.setup(viewModel)
-            return cell
-        })
-        update()
-        dataSource.defaultRowAnimation = .top
-        
-        AccountsManager.shared.accounts.bind { [weak self] _ in
-            guard let isFirstLoadMade = self?.isFirstLoadMade else { return }
+        DBManager.shared.accounts.bind { [weak self] _ in
             DispatchQueue.main.async {
-                if isFirstLoadMade {
-                    self?.update()
-                } else {
-                    self?.reload()
-                    self?.isFirstLoadMade = true
-                }
+                self?.checkList()
+                self?.tableView.reloadData()
+                guard let refreshControl = self?.refreshControl else { return }
+                refreshControl.endRefreshing()
             }
         }
     }
     
-    func reload() {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, AccountCellViewModel>()
-        snapshot.appendSections([.accounts])
-        snapshot.appendItems(AccountsManager.shared.accounts.value, toSection: .accounts)
-        dataSource.apply(snapshot, animatingDifferences: false)
-        checkList()
-    }
-    
-    func update() {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, AccountCellViewModel>()
-        snapshot.appendSections([.accounts])
-        snapshot.appendItems(AccountsManager.shared.accounts.value, toSection: .accounts)
-        dataSource.apply(snapshot)
-        checkList()
-    }
-    
     func checkList() {
-        if AccountsManager.shared.accounts.value.isEmpty {
+        if DBManager.shared.accounts.value.isEmpty && DBManager.shared.isFirstLoadMade {
             let view = EmptyListMessage(frame: tableView.bounds)
             view.setup()
             tableView.backgroundView = view
@@ -87,6 +69,12 @@ class AccountsListController: UITableViewController {
         let vc = QRScannerViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @objc
+    func settingsButtonTapped() {
+        let vc = SettingsViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 
     // MARK: - Table view data source
 
@@ -98,7 +86,7 @@ class AccountsListController: UITableViewController {
         let action = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, compleltion in
             let alert = UIAlertController(title: "Delete this account?", message: nil, preferredStyle: .actionSheet)
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
-                AccountsManager.shared.deleteAccount(indexPath.row)
+                DBManager.shared.deleteAccount(indexPath.row)
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
                 alert.dismiss(animated: true, completion: nil)
@@ -110,5 +98,15 @@ class AccountsListController: UITableViewController {
         let config = UISwipeActionsConfiguration(actions: [action])
         config.performsFirstActionWithFullSwipe = false
         return config
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AccountCell
+        cell.setup(DBManager.shared.accounts.value[indexPath.row])
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return DBManager.shared.accounts.value.count
     }
 }
