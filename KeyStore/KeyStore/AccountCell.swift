@@ -86,12 +86,12 @@ class AccountCell: UITableViewCell {
                 self?.codeLabel.text = code?.code
             }
         })
-        viewModel.seconds.bind({ [weak self] seconds in
+        viewModel.seconds.bind(true, listener: { [weak self] seconds in
             DispatchQueue.main.async {
                 self?.timeLabel.textColor = seconds < 10 ? .systemRed : .secondaryLabel
                 self?.timeLabel.text = "\(seconds)"
             }
-        }, getCurrentValue: true)
+        })
     }
 
 }

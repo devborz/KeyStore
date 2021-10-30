@@ -17,7 +17,7 @@ class DefinedObservable<T> {
     
     var listener: ((T) -> Void)?
     
-    func bind(_ listener: @escaping (T) -> Void, getCurrentValue: Bool = false) {
+    func bind(_ getCurrentValue: Bool = false, listener: @escaping (T) -> Void) {
         self.listener = listener
         if getCurrentValue {
             listener(value)

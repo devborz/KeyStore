@@ -33,10 +33,7 @@ class DBManager {
     }
     
     func createUser(id: String, email: String, completion: ((Error?) -> Void)?) {
-        let batch = db.batch()
-        let userRef = db.collection("users").document(id)
-        batch.setData(["id": id, "email": email], forDocument: userRef)
-        batch.commit { error in
+        db.collection("users").document(id).setData(["id": id, "email": email]) { error in
             completion?(error)
         }
     }
@@ -45,7 +42,10 @@ class DBManager {
         guard let uid = AuthManager.shared.currentUserID else { return }
         db.collection("users").document(uid).collection("accounts").getDocuments { snapshot, error in
             guard error == nil,
-                  let docs = snapshot?.documents else { return }
+                  let docs = snapshot?.documents else {
+                      print(error?.localizedDescription)
+                      return
+                  }
             var accounts: [Account] = []
             for doc in docs {
                 if let account = Account(dict: doc.data()) {

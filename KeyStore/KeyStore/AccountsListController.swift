@@ -21,7 +21,6 @@ class AccountsListController: UITableViewController {
         super.viewDidLoad()
         setupNavBar()
         setupTableView()
-        
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
@@ -44,7 +43,7 @@ class AccountsListController: UITableViewController {
     func setupTableView() {
         tableView.register(AccountCell.self, forCellReuseIdentifier: "cell")
         
-        DBManager.shared.accounts.bind { [weak self] _ in
+        DBManager.shared.accounts.bind(true) { [weak self] _ in
             DispatchQueue.main.async {
                 self?.checkList()
                 self?.tableView.reloadData()
@@ -58,6 +57,7 @@ class AccountsListController: UITableViewController {
         if DBManager.shared.accounts.value.isEmpty && DBManager.shared.isFirstLoadMade {
             let view = EmptyListMessage(frame: tableView.bounds)
             view.setup()
+            view.layoutIfNeeded()
             tableView.backgroundView = view
         } else {
             tableView.backgroundView = nil
@@ -72,7 +72,7 @@ class AccountsListController: UITableViewController {
     
     @objc
     func settingsButtonTapped() {
-        let vc = SettingsViewController()
+        let vc = SettingsViewController(style: .insetGrouped)
         navigationController?.pushViewController(vc, animated: true)
     }
 

@@ -41,13 +41,7 @@ final class AuthManager {
                 return
             }
             DBManager.shared.createUser(id: result.user.uid, email: email) { error in
-                guard error == nil else {
-                    completion?(error)
-                    return
-                }
-                self.signIn(email: email, password: password) { error in
-                    completion?(error)
-                }
+                completion?(error)
             }
         }
     }
