@@ -17,6 +17,8 @@ class AccountCell: UITableViewCell {
     
     let timeLabel = UILabel()
     
+    let copyButton = UIButton()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .systemBackground
@@ -24,10 +26,12 @@ class AccountCell: UITableViewCell {
         emailLabel.translatesAutoresizingMaskIntoConstraints = false
         codeLabel.translatesAutoresizingMaskIntoConstraints = false
         timeLabel.translatesAutoresizingMaskIntoConstraints = false
+        copyButton.translatesAutoresizingMaskIntoConstraints = false
         
         contentView.addSubview(emailLabel)
         contentView.addSubview(codeLabel)
         contentView.addSubview(timeLabel)
+        contentView.addSubview(copyButton)
         
         emailLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
         emailLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
