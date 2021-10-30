@@ -19,10 +19,24 @@
 		8D30202B26FE329B00B30A68 /* AccountsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30202926FE329B00B30A68 /* AccountsListController.swift */; };
 		8D30202C26FE329B00B30A68 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30202A26FE329B00B30A68 /* QRScannerViewController.swift */; };
 		8D30202E26FE32A500B30A68 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30202D26FE32A500B30A68 /* Observable.swift */; };
-		8D30203126FE32B500B30A68 /* AccountsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30203026FE32B500B30A68 /* AccountsManager.swift */; };
+		8D30203126FE32B500B30A68 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30203026FE32B500B30A68 /* DBManager.swift */; };
 		8D30203326FE3C5100B30A68 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30203226FE3C5100B30A68 /* Functions.swift */; };
 		8D30203526FE614A00B30A68 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30203426FE614A00B30A68 /* NavigationController.swift */; };
 		8D30203726FE692E00B30A68 /* EmptyListMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D30203626FE692E00B30A68 /* EmptyListMessage.swift */; };
+		8D427951272C29E500BB2EFC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D42794F272C29E500BB2EFC /* LoginViewController.swift */; };
+		8D427952272C29E500BB2EFC /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D427950272C29E500BB2EFC /* LoginViewController.xib */; };
+		8D427955272C29F600BB2EFC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D427953272C29F600BB2EFC /* SignUpViewController.swift */; };
+		8D427956272C29F600BB2EFC /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D427954272C29F600BB2EFC /* SignUpViewController.xib */; };
+		8D427958272C307400BB2EFC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D427957272C307400BB2EFC /* GoogleService-Info.plist */; };
+		8D42795B272C8E0100BB2EFC /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D427959272C8E0100BB2EFC /* ActivityController.swift */; };
+		8D42795C272C8E0100BB2EFC /* ActivityController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D42795A272C8E0100BB2EFC /* ActivityController.xib */; };
+		8D427960272C911300BB2EFC /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D42795E272C911300BB2EFC /* ForgotPasswordController.swift */; };
+		8D427961272C911300BB2EFC /* ForgotPasswordController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D42795F272C911300BB2EFC /* ForgotPasswordController.xib */; };
+		8D427963272C9AEA00BB2EFC /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D427962272C9AEA00BB2EFC /* AuthManager.swift */; };
+		8D42796A272CA43400BB2EFC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D427968272CA43400BB2EFC /* SettingsViewController.swift */; };
+		8D42796B272CA43400BB2EFC /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D427969272CA43400BB2EFC /* SettingsViewController.xib */; };
+		8D42796D272CA7C700BB2EFC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D42796C272CA7C700BB2EFC /* Extensions.swift */; };
+		8D42796F272CCC5600BB2EFC /* QRCameraMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D42796E272CCC5600BB2EFC /* QRCameraMask.swift */; };
 		FD10DBF986CC6673E99BEAED /* Pods_KeyStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2DDFEE58B8B4BDD43E55F6F /* Pods_KeyStore.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,10 +56,24 @@
 		8D30202926FE329B00B30A68 /* AccountsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsListController.swift; sourceTree = "<group>"; };
 		8D30202A26FE329B00B30A68 /* QRScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		8D30202D26FE32A500B30A68 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
-		8D30203026FE32B500B30A68 /* AccountsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountsManager.swift; sourceTree = "<group>"; };
+		8D30203026FE32B500B30A68 /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		8D30203226FE3C5100B30A68 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		8D30203426FE614A00B30A68 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		8D30203626FE692E00B30A68 /* EmptyListMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListMessage.swift; sourceTree = "<group>"; };
+		8D42794F272C29E500BB2EFC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8D427950272C29E500BB2EFC /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		8D427953272C29F600BB2EFC /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		8D427954272C29F600BB2EFC /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		8D427957272C307400BB2EFC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8D427959272C8E0100BB2EFC /* ActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
+		8D42795A272C8E0100BB2EFC /* ActivityController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityController.xib; sourceTree = "<group>"; };
+		8D42795E272C911300BB2EFC /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
+		8D42795F272C911300BB2EFC /* ForgotPasswordController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordController.xib; sourceTree = "<group>"; };
+		8D427962272C9AEA00BB2EFC /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		8D427968272CA43400BB2EFC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8D427969272CA43400BB2EFC /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		8D42796C272CA7C700BB2EFC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		8D42796E272CCC5600BB2EFC /* QRCameraMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCameraMask.swift; sourceTree = "<group>"; };
 		F2DDFEE58B8B4BDD43E55F6F /* Pods_KeyStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeyStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFAE0D982FE4C05C341566C8 /* Pods-KeyStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeyStore.debug.xcconfig"; path = "Target Support Files/Pods-KeyStore/Pods-KeyStore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,12 +126,17 @@
 		8D30201C26FE320300B30A68 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8D42795D272C8E0D00BB2EFC /* Other */,
+				8D42794E272C29C700BB2EFC /* Authorization */,
 				8D30202926FE329B00B30A68 /* AccountsListController.swift */,
 				8D30202A26FE329B00B30A68 /* QRScannerViewController.swift */,
 				8D30200826FE318C00B30A68 /* AppDelegate.swift */,
 				8D30200A26FE318C00B30A68 /* SceneDelegate.swift */,
 				8D30200C26FE318C00B30A68 /* ViewController.swift */,
 				8D30203426FE614A00B30A68 /* NavigationController.swift */,
+				8D427968272CA43400BB2EFC /* SettingsViewController.swift */,
+				8D427969272CA43400BB2EFC /* SettingsViewController.xib */,
+				8D42796C272CA7C700BB2EFC /* Extensions.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -139,6 +172,7 @@
 			children = (
 				8D30202426FE326900B30A68 /* AccountCell.swift */,
 				8D30203626FE692E00B30A68 /* EmptyListMessage.swift */,
+				8D42796E272CCC5600BB2EFC /* QRCameraMask.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -146,6 +180,7 @@
 		8D30202126FE323100B30A68 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8D427957272C307400BB2EFC /* GoogleService-Info.plist */,
 				8D30201126FE318D00B30A68 /* Assets.xcassets */,
 				8D30201626FE318D00B30A68 /* Info.plist */,
 			);
@@ -155,9 +190,32 @@
 		8D30202F26FE32A800B30A68 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				8D30203026FE32B500B30A68 /* AccountsManager.swift */,
+				8D30203026FE32B500B30A68 /* DBManager.swift */,
+				8D427962272C9AEA00BB2EFC /* AuthManager.swift */,
 			);
 			name = Managers;
+			sourceTree = "<group>";
+		};
+		8D42794E272C29C700BB2EFC /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				8D42794F272C29E500BB2EFC /* LoginViewController.swift */,
+				8D427950272C29E500BB2EFC /* LoginViewController.xib */,
+				8D427953272C29F600BB2EFC /* SignUpViewController.swift */,
+				8D427954272C29F600BB2EFC /* SignUpViewController.xib */,
+				8D42795E272C911300BB2EFC /* ForgotPasswordController.swift */,
+				8D42795F272C911300BB2EFC /* ForgotPasswordController.xib */,
+			);
+			name = Authorization;
+			sourceTree = "<group>";
+		};
+		8D42795D272C8E0D00BB2EFC /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				8D427959272C8E0100BB2EFC /* ActivityController.swift */,
+				8D42795A272C8E0100BB2EFC /* ActivityController.xib */,
+			);
+			name = Other;
 			sourceTree = "<group>";
 		};
 		903F827221C44847BC8CEF36 /* Pods */ = {
@@ -237,9 +295,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D427956272C29F600BB2EFC /* SignUpViewController.xib in Resources */,
+				8D42796B272CA43400BB2EFC /* SettingsViewController.xib in Resources */,
+				8D427952272C29E500BB2EFC /* LoginViewController.xib in Resources */,
 				8D30201526FE318D00B30A68 /* LaunchScreen.storyboard in Resources */,
 				8D30201226FE318D00B30A68 /* Assets.xcassets in Resources */,
 				8D30201026FE318C00B30A68 /* Main.storyboard in Resources */,
+				8D427961272C911300BB2EFC /* ForgotPasswordController.xib in Resources */,
+				8D427958272C307400BB2EFC /* GoogleService-Info.plist in Resources */,
+				8D42795C272C8E0100BB2EFC /* ActivityController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,15 +356,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D427951272C29E500BB2EFC /* LoginViewController.swift in Sources */,
+				8D427963272C9AEA00BB2EFC /* AuthManager.swift in Sources */,
 				8D30202826FE327E00B30A68 /* AccountCellViewModel.swift in Sources */,
 				8D30203526FE614A00B30A68 /* NavigationController.swift in Sources */,
 				8D30200D26FE318C00B30A68 /* ViewController.swift in Sources */,
+				8D42796A272CA43400BB2EFC /* SettingsViewController.swift in Sources */,
+				8D42795B272C8E0100BB2EFC /* ActivityController.swift in Sources */,
 				8D30202526FE326900B30A68 /* AccountCell.swift in Sources */,
 				8D30202326FE325600B30A68 /* Models.swift in Sources */,
+				8D42796F272CCC5600BB2EFC /* QRCameraMask.swift in Sources */,
 				8D30203326FE3C5100B30A68 /* Functions.swift in Sources */,
+				8D427960272C911300BB2EFC /* ForgotPasswordController.swift in Sources */,
 				8D30202E26FE32A500B30A68 /* Observable.swift in Sources */,
-				8D30203126FE32B500B30A68 /* AccountsManager.swift in Sources */,
+				8D30203126FE32B500B30A68 /* DBManager.swift in Sources */,
+				8D427955272C29F600BB2EFC /* SignUpViewController.swift in Sources */,
 				8D30203726FE692E00B30A68 /* EmptyListMessage.swift in Sources */,
+				8D42796D272CA7C700BB2EFC /* Extensions.swift in Sources */,
 				8D30202C26FE329B00B30A68 /* QRScannerViewController.swift in Sources */,
 				8D30200926FE318C00B30A68 /* AppDelegate.swift in Sources */,
 				8D30200B26FE318C00B30A68 /* SceneDelegate.swift in Sources */,
