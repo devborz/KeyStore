@@ -18,12 +18,15 @@ class QRScannerViewController: UIViewController {
     
     var closeButton: UIBarButtonItem!
     
+    var maskView = QRCameraMask()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Add account"
         navigationItem.largeTitleDisplayMode = .never
         
         view.backgroundColor = .systemBackground
+        maskView.backgroundColor = .clear
         setupCamera()
     }
     
@@ -34,12 +37,19 @@ class QRScannerViewController: UIViewController {
     
     func setupCamera() {
         cameraView.translatesAutoresizingMaskIntoConstraints = false
+        maskView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(cameraView)
-        cameraView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        cameraView.heightAnchor.constraint(equalTo: cameraView.widthAnchor).isActive = true
+        view.addSubview(maskView)
+        cameraView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        cameraView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         cameraView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
         cameraView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
         cameraView.clipsToBounds = true
+        
+        maskView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        maskView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        maskView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
+        maskView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
         view.layoutIfNeeded()
         
         captureSession = AVCaptureSession()
@@ -111,7 +121,7 @@ class QRScannerViewController: UIViewController {
             guard let stringValue = readableObject.stringValue else { return }
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             if let account = parseResult(stringValue) {
-                AccountsManager.shared.saveAccount(account)
+                DBManager.shared.saveAccount(account)
             }
         }
 
