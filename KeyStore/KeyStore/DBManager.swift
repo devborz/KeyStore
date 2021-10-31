@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RealmSwift
 import FirebaseFirestore
 
 class DBManager {
@@ -57,14 +56,6 @@ class DBManager {
         }
     }
     
-    func fetchLastCodeForAccount(_ account: Account) -> Code? {
-        if let realm = try? Realm() {
-            return realm.object(ofType: Code.self, forPrimaryKey: account.id)
-        } else {
-            return nil
-        }
-    }
-    
     func saveAccount(_ account: Account) {
         accounts.value.append(.init(model: account))
         guard let uid = AuthManager.shared.currentUserID else { return }
@@ -76,16 +67,5 @@ class DBManager {
         accounts.value.remove(at: index)
         guard let uid = AuthManager.shared.currentUserID else { return }
         db.collection("users").document(uid).collection("accounts").document(account.id).delete()
-    }
-    
-    func saveCode(_ code: Code, for account: Account) {
-        if let realm = try? Realm() {
-            try? realm.write {
-                if let lastCode = realm.object(ofType: Code.self, forPrimaryKey: account.id) {
-                    realm.delete(lastCode)
-                }
-                realm.add(code)
-            }
-        }
     }
 }
