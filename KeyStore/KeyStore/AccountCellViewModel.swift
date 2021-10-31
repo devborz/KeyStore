@@ -27,27 +27,15 @@ class AccountCellViewModel: Hashable, Equatable {
     
     init(model: Account) {
         self.model = model
-        if let lastCode = DBManager.shared.fetchLastCodeForAccount(model) {
-            currentCode.value = lastCode
-            let components = Calendar.current.dateComponents([.second], from: lastCode.created, to: Date())
-            let seconds = components.second!
-            if seconds >= 30 {
-                generateNewCode()
-            } else {
-                self.seconds.value = 30 - seconds
-                setupTimer()
-            }
-        } else {
-            generateNewCode()
-        }
+        generateNewCode()
     }
     
     func generateNewCode() {
         if let code = generateCode(for: model) {
             currentCode.value = code
-            seconds.value = 30
+            let components = Calendar.current.dateComponents([.second], from: code.timeInterval, to: Date())
+            seconds.value = 30 - (components.second ?? 0)
             setupTimer()
-            DBManager.shared.saveCode(code, for: model)
         }
     }
     
@@ -55,7 +43,7 @@ class AccountCellViewModel: Hashable, Equatable {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] timer in
             guard let strongSelf = self,
                   let code = strongSelf.currentCode.value else { return }
-            let components = Calendar.current.dateComponents([.second], from: code.created, to: Date())
+            let components = Calendar.current.dateComponents([.second], from: code.timeInterval, to: Date())
             strongSelf.seconds.value = 30 - (components.second ?? 0)
             if strongSelf.seconds.value <= 0 {
                 timer.invalidate()
@@ -67,7 +55,7 @@ class AccountCellViewModel: Hashable, Equatable {
     @objc
     func handleTime() {
         guard let code = currentCode.value else { return }
-        let components = Calendar.current.dateComponents([.second], from: code.created, to: Date())
+        let components = Calendar.current.dateComponents([.second], from: code.timeInterval, to: Date())
         seconds.value = 30 - (components.second ?? 0)
         if seconds.value <= 0 {
             timer?.invalidate()
