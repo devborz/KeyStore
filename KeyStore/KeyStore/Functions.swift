@@ -55,14 +55,14 @@ func generateCode(for account: Account) -> Code? {
     if let data = base32DecodeToData(account.secret),
        let totp = TOTP(secret: data, digits: 6, timeInterval: 30, algorithm: .sha1) {
         let time = Date()
-        let code = Code()
-        code._id = account.id
-        code.code = totp.generate(time: time) ?? ""
-        code.created = time
+        let codeStr = totp.generate(time: time) ?? ""
+        let code = Code(secret: account.secret, code: codeStr, timeInterval: Date.nearestPointDivisibleBy30)
         return code
     }
     return nil
 }
+
+
 
 func resetWindow(with vc: UIViewController?) {
     guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate else {
