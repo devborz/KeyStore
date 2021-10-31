@@ -7,7 +7,6 @@ target 'KeyStore' do
 
   # Pods for KeyStore
   pod 'SwiftOTP'
-  pod 'RealmSwift', '~>10'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
 
