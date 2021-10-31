@@ -119,6 +119,7 @@
 				8D30201D26FE320E00B30A68 /* ViewModels */,
 				8D30201C26FE320300B30A68 /* ViewControllers */,
 				8D30203226FE3C5100B30A68 /* Functions.swift */,
+				8D42796C272CA7C700BB2EFC /* Extensions.swift */,
 			);
 			path = KeyStore;
 			sourceTree = "<group>";
@@ -136,7 +137,6 @@
 				8D30203426FE614A00B30A68 /* NavigationController.swift */,
 				8D427968272CA43400BB2EFC /* SettingsViewController.swift */,
 				8D427969272CA43400BB2EFC /* SettingsViewController.xib */,
-				8D42796C272CA7C700BB2EFC /* Extensions.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
