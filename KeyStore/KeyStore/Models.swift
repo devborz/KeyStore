@@ -7,7 +7,6 @@
 
 import Foundation
 import CryptoKit
-import RealmSwift
 
 struct Account {
     var id: String = ""
@@ -38,10 +37,10 @@ extension Account {
     }
 }
 
-class Code: Object {
-    @Persisted(primaryKey: true) var _id: String
-    @Persisted var code: String = ""
-    @Persisted var created: Date = Date()
+struct Code {
+    var secret: String
+    var code: String
+    var timeInterval: Date
 }
 
 struct DBUser {
